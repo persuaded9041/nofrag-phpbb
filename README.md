@@ -23,7 +23,7 @@ Importer le backup de la base de données `/database/dump.sql` dans la base `wef
 composer test
 ```
 
-Le forum est accessible sur : [http://localhost:8080](http://localhost:8080).
+Le forum est accessible sur : [http://localhost:8000](http://localhost:8000).
 
 - identifiant : wefrag
 - mot de passe : wefrag

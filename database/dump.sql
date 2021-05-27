@@ -1,3 +1,10 @@
+DROP DATABASE IF EXISTS wefrag;
+CREATE DATABASE wefrag CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+DROP USER IF EXISTS wefrag;
+CREATE USER 'wefrag'@'localhost' IDENTIFIED WITH mysql_native_password BY 'wefrag';
+GRANT ALL PRIVILEGES ON 'wefrag'.* TO 'wefrag'@'localhost';
+FLUSH PRIVILEGES;
+USE wefrag;
 #
 # phpBB Backup Script
 # Dump of tables for phpbb_
