@@ -22,7 +22,7 @@
     "irc": "irc://irc.freenode.org/phpbb"
   },
   "scripts": {
-    "test": "php -S localhost:8080"
+    "test": "php -S localhost:8000"
   },
   "replace": {
     "phpbb/phpbb-core": "self.version"

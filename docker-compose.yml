@@ -1,33 +1,35 @@
-version: '3.1'
+version: '3.7'
 
 services:
-  php:
-    image: php:7.2-fpm
-    depends_on:
-      - db
-    command: php -S 0.0.0.0:80 /wefrag/index.php
+  web-server:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    restart: always
+    volumes:
+      - './:/var/www/html/'
     ports:
       - '8000:80'
-    volumes:
-      - .:/wefrag
+    depends_on:
+      - 'mysql'
 
-  db:
+  mysql:
+    container_name: mysql
     image: mysql:5.7
+    restart: always
     command: --default-authentication-plugin=mysql_native_password
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    command: --init-file /init.sql
     volumes:
-      - ./database:/docker-entrypoint-initdb.d
+      - ./mysql:/var/lib/mysql
+      - ./database/dump.sql:/init.sql
     environment:
-      MYSQL_ROOT_PASSWORD: wefrag
+      MYSQL_DATABASE: wefrag
       MYSQL_USER: wefrag
       MYSQL_PASSWORD: wefrag
-      MYSQL_DATABASE: wefrag
+      MYSQL_ROOT_PASSWORD: wefrag
     ports:
       - '9906:3306'
 
-  composer:
-    image: composer:1.9
-    container_name: php_composer
-    command: ['php', 'composer', 'install']
-    restart: always
-    volumes:
-      - .:/wefrag
+volumes:
+  mysql:

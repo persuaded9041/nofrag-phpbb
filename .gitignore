@@ -2,6 +2,9 @@
 cache/*
 !cache/.htaccess
 
+# docker
+mysql
+
 # Created by https://www.toptal.com/developers/gitignore/api/composer,visualstudiocode,phpstorm+all
 # Edit at https://www.toptal.com/developers/gitignore?templates=composer,visualstudiocode,phpstorm+all
 

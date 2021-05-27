@@ -1,29 +1,49 @@
-# Forum NoFrag
+# Forum NoFrag - PHPbb
 
-## 1. Initialiser le projet
+## Accès au forum
+
+Le forum est accessible sur : [http://localhost:8000](http://localhost:8000).
+
+- Identifiant : wefrag
+- Mot de passe : wefrag
+
+## Installation et exécution du forum
+
+### 1. Avec Docker
+
+#### Prérequis
+
+- [Installer Docker](https://docs.docker.com/engine/install/)
+- [Installer Docker Compose](https://docs.docker.com/compose/install/)
+
+#### Configuration
+
+Installer et lancer le serveur avec la commande (dans le dossier du projet) :
+
+```bash
+docker-compose up
+```
+
+### 2. Avec Composer
+
+#### Prérequis
+
+- [Installer MySQL 5.7](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/)
+- [Installer PHP 7.2](https://prototype.php.net/versions/7.2/install/)
+- [Installer Composer](https://www.hostinger.fr/tutoriels/comment-installer-et-utiliser-composer/)
+
+#### Configuration
+
+Importer la base de données à partir du fichier [./database/dump.sql](./database/dump.sql).
+
+Installer les dépendances avec la commande (dans le dossier du projet) :
 
 ```bash
 composer install
 ```
 
-Créer la base de données :
-
-```sql
-CREATE DATABASE wefrag CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'wefrag'@'localhost' IDENTIFIED WITH mysql_native_password BY 'wefrag';
-GRANT ALL PRIVILEGES ON 'wefrag'.* TO 'wefrag'@'localhost';
-FLUSH PRIVILEGES;
-```
-
-Importer le backup de la base de données `/database/dump.sql` dans la base `wefrag`;
-
-## 2. Lancer le serveur
+Lancer le serveur avec la commande (dans le dossier du projet) :
 
 ```bash
 composer test
 ```
-
-Le forum est accessible sur : [http://localhost:8000](http://localhost:8000).
-
-- identifiant : wefrag
-- mot de passe : wefrag
