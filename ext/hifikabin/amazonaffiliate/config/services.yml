@@ -1,0 +1,8 @@
+services:
+    hifikabin.amazonaffiliate.listener:
+        class: hifikabin\amazonaffiliate\event\listener
+        arguments:
+            - '@template'
+            - '@config'
+        tags:
+            - { name: event.listener }

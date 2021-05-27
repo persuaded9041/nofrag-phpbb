@@ -1,0 +1,10 @@
+Upozornìní na novou akci pro vinaøe v kalendáøi - "{EVENT_NAME}".
+
+Ahoj {USERNAME},
+
+obdržel jsi toto upozornìní protože "{AUTHOR}" z "{SITENAME}" upravil akci pro vinaøe do kalendáøe.
+
+Akci si mùžeš prohlédnout kliknutím na tento odkaz:
+{U_CALENDAR_EVENT}
+
+{EMAIL_SIG}

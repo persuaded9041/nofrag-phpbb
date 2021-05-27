@@ -1,0 +1,40 @@
+imports:
+    - { resource: tables.yml }
+
+services:
+    hjw.calendar.controller:
+        class: hjw\calendar\controller\main
+        arguments:
+            - '@service_container'
+            - '@config'
+            - '@dbal.conn'
+            - '@controller.helper'
+            - '@auth'
+            - '@template'
+            - '@user'
+            - '@language'
+            - '@request'
+            - '@dispatcher'
+            - '%core.table_prefix%'
+            - '%core.root_path%'
+            - '.%core.php_ext%'
+ 
+    hjw.calendar.listener:
+        class: hjw\calendar\event\main_listener
+        arguments:
+            - '@service_container'
+            - '@config'
+            - '@dbal.conn'
+            - '@controller.helper'
+            - '@auth'
+            - '@template'
+            - '@user'
+            - '@language'
+            - '@request'
+            - '@dispatcher'
+            - '%core.table_prefix%'
+            - '%core.root_path%'
+            - '.%core.php_ext%'
+
+        tags:
+            - { name: event.listener }            

@@ -1,0 +1,11 @@
+parameters:
+    tables.calendar: '%core.table_prefix%calendar'
+    tables.calendar_participants: '%core.table_prefix%calendar_participants'
+    tables.calendar_event: '%core.table_prefix%calendar_event'
+    tables.calendar_event_list: '%core.table_prefix%calendar_event_list'
+    tables.calendar_special_days: '%core.table_prefix%calendar_special_days'
+    tables.calendar_forums: '%core.table_prefix%calendar_forums'
+    tables.calendar_config: '%core.table_prefix%calendar_config'
+    tables.footb_matches: '%core.table_prefix%footb_matches'
+    tables.footb_teams: '%core.table_prefix%footb_teams'
+

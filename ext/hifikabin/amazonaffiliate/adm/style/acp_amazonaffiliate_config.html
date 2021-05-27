@@ -1,0 +1,76 @@
+{% INCLUDE 'overall_header.html' %}
+<h1>{{ lang('ACP_AMAZONAFFILIATE_CONFIG') }}</h1>
+<p>{{ lang('ACP_AMAZONAFFILIATE_CONFIG_EXPLAIN') }}</p>
+{{ lang('ACP_AMAZONAFFILIATE_TLD') }}<br>
+{{ lang('ACP_AMAZONAFFILIATE_TLD_EXPLAIN') }}
+<form id="acp_quotes_config" method="post" action="{{ U_ACTION }}">
+	<fieldset>
+		<dl>
+			<dt><label for="amazonaffiliate_au">{{ lang('AMAZONAFFILIATE_AMAZON') ~ lang('AMAZONAFFILIATE_AU') }}</label><br/></dt>
+			<dd><input name="amazonaffiliate_au" id="amazonaffiliate_au" value="{{ AMAZONAFFILIATE_AU }}" maxlength="255" /></dd>
+		</dl>
+		<hr>
+		<dl>
+			<dt><label for="amazonaffiliate_ca">{{ lang('AMAZONAFFILIATE_AMAZON') ~ lang('AMAZONAFFILIATE_CA') }}</label><br/></dt>
+			<dd><input name="amazonaffiliate_ca" id="amazonaffiliate_ca" value="{{ AMAZONAFFILIATE_CA }}" maxlength="255" /></dd>
+		</dl>
+		<hr>
+		<dl>
+			<dt><label for="amazonaffiliate_cn">{{ lang('AMAZONAFFILIATE_AMAZON') ~ lang('AMAZONAFFILIATE_CN') }}</label><br/></dt>
+			<dd><input name="amazonaffiliate_cn" id="amazonaffiliate_cn" value="{{ AMAZONAFFILIATE_CN }}" maxlength="255" /></dd>
+		</dl>
+		<hr>
+		<dl>
+			<dt><label for="amazonaffiliate_com">{{ lang('AMAZONAFFILIATE_AMAZON') ~ lang('AMAZONAFFILIATE_COM') }}</label><br/></dt>
+			<dd><input name="amazonaffiliate_com" id="amazonaffiliate_com" value="{{ AMAZONAFFILIATE_COM }}" maxlength="255" /></dd>
+		</dl>
+		<hr>
+		<dl>
+			<dt><label for="amazonaffiliate_couk">{{ lang('AMAZONAFFILIATE_AMAZON') ~ lang('AMAZONAFFILIATE_COUK') }}</label><br/></dt>
+			<dd><input name="amazonaffiliate_couk" id="amazonaffiliate_couk" value="{{ AMAZONAFFILIATE_COUK }}" maxlength="255" /></dd>
+		</dl>
+		<hr>
+		<dl>
+			<dt><label for="amazonaffiliate_de">{{ lang('AMAZONAFFILIATE_AMAZON') ~ lang('AMAZONAFFILIATE_DE') }}</label><br/></dt>
+			<dd><input name="amazonaffiliate_de" id="amazonaffiliate_de" value="{{ AMAZONAFFILIATE_DE }}" maxlength="255" /></dd>
+		</dl>
+		<hr>
+		<dl>
+			<dt><label for="amazonaffiliate_es">{{ lang('AMAZONAFFILIATE_AMAZON') ~ lang('AMAZONAFFILIATE_ES') }}</label><br/></dt>
+			<dd><input name="amazonaffiliate_es" id="amazonaffiliate_es" value="{{ AMAZONAFFILIATE_ES }}" maxlength="255" /></dd>
+		</dl>
+		<hr>
+		<dl>
+			<dt><label for="amazonaffiliate_fr">{{ lang('AMAZONAFFILIATE_AMAZON') ~ lang('AMAZONAFFILIATE_FR') }}</label><br/></dt>
+			<dd><input name="amazonaffiliate_fr" id="amazonaffiliate_fr" value="{{ AMAZONAFFILIATE_FR }}" maxlength="255" /></dd>
+		</dl>
+		<hr>
+		<dl>
+			<dt><label for="amazonaffiliate_in">{{ lang('AMAZONAFFILIATE_AMAZON') ~ lang('AMAZONAFFILIATE_IN') }}</label><br/></dt>
+			<dd><input name="amazonaffiliate_in" id="amazonaffiliate_in" value="{{ AMAZONAFFILIATE_IN }}" maxlength="255" /></dd>
+		</dl>
+		<hr>
+		<dl>
+			<dt><label for="amazonaffiliate_it">{{ lang('AMAZONAFFILIATE_AMAZON') ~ lang('AMAZONAFFILIATE_IT') }}</label><br/></dt>
+			<dd><input name="amazonaffiliate_it" id="amazonaffiliate_it" value="{{ AMAZONAFFILIATE_IT }}" maxlength="255" /></dd>
+		</dl>
+		<hr>
+		<dl>
+			<dt><label for="amazonaffiliate_jp">{{ lang('AMAZONAFFILIATE_AMAZON') ~ lang('AMAZONAFFILIATE_JP') }}</label><br/></dt>
+			<dd><input name="amazonaffiliate_jp" id="amazonaffiliate_jp" value="{{ AMAZONAFFILIATE_JP }}" maxlength="255" /></dd>
+		</dl>
+		<hr>
+		<dl>
+			<dt><label for="amazonaffiliate_mx">{{ lang('AMAZONAFFILIATE_AMAZON') ~ lang('AMAZONAFFILIATE_MX') }}</label><br/></dt>
+			<dd><input name="amazonaffiliate_mx" id="amazonaffiliate_mx" value="{{ AMAZONAFFILIATE_MX }}" maxlength="255" /></dd>
+		</dl>
+		<hr>
+		<p class="submit-buttons">
+			<input type="hidden" name="action" value="save" />
+			<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />
+			{{ S_FORM_TOKEN }}
+		</p>
+	</fieldset>
+</form>
+{% INCLUDE 'overall_footer.html' %}

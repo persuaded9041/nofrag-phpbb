@@ -1,0 +1,42 @@
+{
+    "name": "hifikabin/amazonaffiliate",
+    "type": "phpbb-extension",
+    "description": "Allows you to add your own Amazon Affiliate Code to the following Amazon or Amzn links posted on your forum .co.uk .com .de .fr .ca. jp .it .cn .es .com.au .com.mx and .in after striping any existing Affiliate Code.",
+    "homepage": "https://phpbb.hifikabin.me.uk",
+    "version": "1.1.0",
+    "license": "GPL-2.0-only",
+    "authors": [
+        {
+            "name": "James Newcombe",
+            "email": "webmaster@hifikabin.me.uk",
+            "homepage": "http://phpbb.hifikabin.me.uk",
+            "role": "Developer"
+        },
+        {
+            "name": "C.T.Ransbury",
+            "role": "Co Developer"
+        },
+        {
+            "name": "Dean Barrow",
+            "homepage": "http://deanbarrow.co.uk",
+            "role": "JavaScript Author"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "phpbb/phpbb": ">=3.1.0",
+        "composer/installers": "~1.0.0"
+    },
+    "extra": {
+        "display-name": "Amazon Affiliate",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.1.0"
+        },
+        "version-check": {
+            "host": "www.phpbb.com",
+            "directory": "/customise/db/extension/amazon_affiliate",
+            "filename": "version_check",
+            "ssl": true
+        }
+    }
+}

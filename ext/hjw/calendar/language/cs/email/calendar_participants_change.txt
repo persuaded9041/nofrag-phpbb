@@ -1,0 +1,10 @@
+Subject: Upozornìní na zmìnu úèasti na akci - "{EVENT_NAME}".
+
+Ahoj {USERNAME},
+
+obdržel jsi toto upozornìní protože "{AUTHOR}" z "{SITENAME}" provedl zmìnu své úèasti na této akci.
+
+Akci si mùžeš prohlédnout kliknutím na tento odkaz:
+{U_CALENDAR_EVENT}
+
+{EMAIL_SIG}
