@@ -1,6 +1,13 @@
 version: '3.7'
 
 services:
+  composer:
+    build:
+      context: .
+    command: ['composer', 'install']
+    depends_on:
+      - 'web-server'
+
   web-server:
     build:
       dockerfile: Dockerfile
