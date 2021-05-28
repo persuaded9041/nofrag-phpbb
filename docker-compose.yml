@@ -4,6 +4,8 @@ services:
   composer:
     build:
       context: .
+    volumes:
+      - './:/var/www/html/'
     command: ['composer', 'install']
     depends_on:
       - 'web-server'
@@ -26,10 +28,8 @@ services:
     restart: always
     command: --default-authentication-plugin=mysql_native_password
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-    command: --init-file /init.sql
     volumes:
-      - ./mysql:/var/lib/mysql
-      - ./database/dump.sql:/init.sql
+      - ./database/dump.sql:/docker-entrypoint-initdb.d/1.sql
     environment:
       MYSQL_DATABASE: wefrag
       MYSQL_USER: wefrag
@@ -37,6 +37,3 @@ services:
       MYSQL_ROOT_PASSWORD: wefrag
     ports:
       - '9906:3306'
-
-volumes:
-  mysql:
