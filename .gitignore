@@ -1,6 +1,8 @@
 ### PHPbb cache ###
 cache/*
 !cache/.htaccess
+!cache/production
+!cache/production/.gitkeep
 
 # docker
 mysql
