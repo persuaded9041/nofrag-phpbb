@@ -16,6 +16,11 @@ Le forum est accessible sur : [http://localhost:8000](http://localhost:8000).
 - [Installer Docker](https://docs.docker.com/engine/install/)
 - [Installer Docker Compose](https://docs.docker.com/compose/install/)
 
+Modifier les droits suivants :
+
+- Les dossiers `store/`, `cache/`, `files/` and `images/avatars/upload/` en 777
+- Le fichier `config.php` en 644
+
 #### Configuration
 
 Installer et lancer le serveur avec la commande (dans le dossier du projet) :
