@@ -1,4 +1,4 @@
-# Forum NoFrag - PHPbb
+# Forum NoFrag - phpBB
 
 ## Accès au forum
 
