@@ -11,7 +11,7 @@ Le forum est accessible sur : [http://localhost:8000](http://localhost:8000).
 
 Une fois le dossier cloné, modifier les droits suivants :
 
-- Les dossiers `store/`, `cache/`, `files/` and `images/avatars/upload/` en 777
+- Les dossiers `store/`, `cache/`, `files/` et `images/avatars/upload/` en 777
 - Le fichier `config.php` en 644
 
 ## Installation et exécution du forum
