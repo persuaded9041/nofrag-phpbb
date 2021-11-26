@@ -13,7 +13,7 @@ Une fois le dossier cloné, modifier les droits suivants :
 
 - Les dossiers `store/`, `cache/`, `files/` et `images/avatars/upload/` en 777: `sudo chmod -R 777 cache/ store/ files/ images/avatars/upload/`
 
-- Le fichier `config.php` en 644: `sudo chmod 664 config.php `
+- Le fichier `config.php` en 664: `sudo chmod 664 config.php `
 
 ## Installation et exécution du forum
 
