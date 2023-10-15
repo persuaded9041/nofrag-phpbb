@@ -1,33 +1,11 @@
 version: '3.7'
 
 services:
-  composer:
-    build:
-      context: .
-    volumes:
-      - './:/var/www/html/'
-    command: ['composer', 'install']
-    depends_on:
-      - 'web-server'
-
-  web-server:
-    build:
-      dockerfile: Dockerfile
-      context: .
-    restart: always
-    volumes:
-      - './:/var/www/html/'
-    ports:
-      - '8000:80'
-    depends_on:
-      - 'mysql'
-
   mysql:
     container_name: mysql
     image: mysql:5.7
     restart: always
-    command: --default-authentication-plugin=mysql_native_password
-    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
       - ./database/dump.sql:/docker-entrypoint-initdb.d/1.sql
     environment:
@@ -37,3 +15,13 @@ services:
       MYSQL_ROOT_PASSWORD: wefrag
     ports:
       - '9906:3306'
+
+  web-server:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    restart: always
+    ports:
+      - '8000:8000'
+    depends_on:
+      - 'mysql'

@@ -12,29 +12,28 @@ Le forum est accessible sur : [http://localhost:8000](http://localhost:8000).
 Une fois le dossier cloné, modifier les droits suivants :
 
 - Les dossiers `store/`, `cache/`, `files/` et `images/avatars/upload/` en 777: 
-`sudo chmod -R 777 cache/ store/ files/ images/avatars/upload/`
+`chmod -R 777 cache/ store/ files/ images/avatars/upload/`
 
 - Le fichier `config.php` en 664: 
-`sudo chmod 664 config.php `
+`chmod 664 config.php`
 
 ## Installation et exécution du forum
 
-### 1. Avec Docker
+### 1. Avec Docker (conseillé)
 
 #### Prérequis
 
-- [Installer Docker](https://docs.docker.com/engine/install/)
-- [Installer Docker Compose](https://docs.docker.com/compose/install/)
+- [Installer Docker et Docker Compose](https://docs.docker.com/engine/install/)
 
 #### Configuration
 
 Installer et lancer le serveur avec la commande (dans le dossier du projet) :
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
-### 2. Avec Composer
+### 2. Avec Composer (déconseillé)
 
 #### Prérequis
 
