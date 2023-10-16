@@ -25,4 +25,4 @@ services:
     ports:
       - '8000:80'
     depends_on:
-      - 'phpbb-mysql'
+      - 'mysql'
