@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3.7'
 
 services:
   mysql:
@@ -8,6 +8,7 @@ services:
     command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
       - ./database/dump.sql:/docker-entrypoint-initdb.d/1.sql
+      - wefrag-data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: wefrag
       MYSQL_USER: wefrag
@@ -15,14 +16,24 @@ services:
       MYSQL_ROOT_PASSWORD: wefrag
     ports:
       - '9906:3306'
+    networks:
+      - wefrag-network
 
   phpbb-apache:
     container_name: phpbb-apache
     build:
-      dockerfile: Dockerfile
       context: .
+      dockerfile: Dockerfile
     restart: always
     ports:
       - '8000:80'
     depends_on:
-      - 'mysql'
+      - mysql
+    networks:
+      - wefrag-network
+
+volumes:
+  wefrag-data:
+
+networks:
+  wefrag-network:
