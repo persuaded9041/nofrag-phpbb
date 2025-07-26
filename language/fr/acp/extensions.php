@@ -4,6 +4,7 @@
  * phpBB forum software.
  *
  * @copyright (c) phpBB Limited <https://www.phpbb.com>
+ * @copyright (c) Qiaeru <https://www.qiaeru.com>
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * For more information about the language pack, please visit
@@ -48,8 +49,9 @@ $lang = array_merge($lang, [
 
 	'DETAILS' => 'Informations',
 
-	'EXTENSIONS_DISABLED' => 'Extensions désactivées',
-	'EXTENSIONS_ENABLED'  => 'Extensions activées',
+	'EXTENSIONS_NOT_INSTALLED' => 'Extensions non installées',
+	'EXTENSIONS_DISABLED'      => 'Extensions désactivées',
+	'EXTENSIONS_ENABLED'       => 'Extensions activées',
 
 	'EXTENSION_DELETE_DATA' => 'Supprimer les données',
 	'EXTENSION_DISABLE'     => 'Désactiver',
@@ -98,8 +100,8 @@ $lang = array_merge($lang, [
 	'RETURN_TO_EXTENSION_LIST' => 'Revenir à la liste des extensions',
 
 	'EXT_DETAILS'  => 'Informations sur l’extension',
-	'DISPLAY_NAME' => 'Afficher le nom',
-	'CLEAN_NAME'   => 'Effacer le nom',
+	'DISPLAY_NAME' => 'Nom d’affichage',
+	'CLEAN_NAME'   => 'Nom propre',
 	'TYPE'         => 'Type',
 	'DESCRIPTION'  => 'Description',
 	'VERSION'      => 'Version',

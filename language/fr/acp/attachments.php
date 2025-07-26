@@ -4,6 +4,7 @@
  * phpBB forum software.
  *
  * @copyright (c) phpBB Limited <https://www.phpbb.com>
+ * @copyright (c) Qiaeru <https://www.qiaeru.com>
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * For more information about the language pack, please visit
@@ -67,7 +68,6 @@ $lang = array_merge($lang, [
 	'ATTACH_QUOTA_EXPLAIN'            => 'La taille maximale de l’espace de stockage qui sera alloué à la totalité des pièces jointes transférées sur le forum. Réglez cette valeur sur « 0 » si vous ne souhaitez pas limiter la taille de cet espace.',
 	'ATTACH_TO_POST'                  => 'Insérer au message',
 
-	'CAT_FLASH_FILES'          => 'Fichiers Flash',
 	'CAT_IMAGES'               => 'Images',
 	'CHECK_CONTENT'            => 'Vérifier les pièces jointes',
 	'CHECK_CONTENT_EXPLAIN'    => 'Certains navigateurs internet peuvent faire erreur en attribuant un type MIME erroné aux fichiers transférés. Cette option permet de rejeter les fichiers qui présentent un risque de provoquer cette erreur.',
@@ -98,7 +98,6 @@ $lang = array_merge($lang, [
 	'EXT_GROUP_ARCHIVES'           => 'Archives',
 	'EXT_GROUP_DOCUMENTS'          => 'Documents',
 	'EXT_GROUP_DOWNLOADABLE_FILES' => 'Fichiers téléchargeables',
-	'EXT_GROUP_FLASH_FILES'        => 'Fichiers Flash',
 	'EXT_GROUP_IMAGES'             => 'Images',
 	'EXT_GROUP_PLAIN_TEXT'         => 'Texte brut',
 
@@ -108,8 +107,12 @@ $lang = array_merge($lang, [
 	'GO_TO_EXTENSIONS' => 'Aller sur la page de gestion des extensions',
 	'GROUP_NAME'       => 'Nom du groupe d’extensions',
 
-	'IMAGE_LINK_SIZE'         => 'Dimensions maximales des images avant la transformation en lien',
-	'IMAGE_LINK_SIZE_EXPLAIN' => 'Les images transférées en pièces jointes seront affichées comme des liens si elles dépassent les valeurs spécifiées dans ces champs. Réglez ces deux valeurs sur « 0 » si vous souhaitez désactiver ce comportement.',
+	'IMAGE_LINK_SIZE'              => 'Dimensions maximales des images avant la transformation en lien',
+	'IMAGE_LINK_SIZE_EXPLAIN'      => 'Les images transférées en pièces jointes seront affichées comme des liens si elles dépassent les valeurs spécifiées dans ces champs. Réglez ces deux valeurs sur « 0 » si vous souhaitez désactiver ce comportement.',
+	'IMAGE_QUALITY'                => 'Qualité des images transférées comme pièces jointes (format JPEG uniquement)',
+	'IMAGE_QUALITY_EXPLAIN'        => 'Veuillez spécifier une valeur comprise entre 50 % (correspondant à la taille de fichier la plus minimale) et 90 % (correspondant à la taille de fichier la plus qualitative). Une qualité au-delà de 90 % augmente significativement la taille de fichier, ce réglage est donc désactivé. De plus, ce paramètre n’est pris en compte que si la dimension maximale des images est configurée sur une valeur différente de 0 px par 0 px.',
+	'IMAGE_STRIP_METADATA'         => 'Supprimer les métadonnées des images (format JPEG uniquement)',
+	'IMAGE_STRIP_METADATA_EXPLAIN' => 'Supprime les métadonnées EXIF, telles que le nom de l’auteur, les coordonnées GPS et les informations sur l’appareil photographique. Ce paramètre n’est pris en compte que si la dimension maximale des images est configurée sur une valeur différente de 0 px par 0 px.',
 
 	'MAX_ATTACHMENTS'            => 'Limite de pièces jointes par message',
 	'MAX_ATTACHMENTS_PM'         => 'Limite de pièces jointes par message privé',
@@ -123,17 +126,19 @@ $lang = array_merge($lang, [
 	'MODE_INLINE'                => 'Dans la ligne',
 	'MODE_PHYSICAL'              => 'Physique',
 
-	'NOT_ALLOWED_IN_PM'      => 'Autorisé uniquement dans les messages',
-	'NOT_ALLOWED_IN_PM_POST' => 'Interdit',
-	'NOT_ASSIGNED'           => 'Non assigné',
-	'NO_ATTACHMENTS'         => 'Aucune pièce jointe.',
-	'NO_EXT_GROUP'           => 'Aucun',
-	'NO_EXT_GROUP_NAME'      => 'Vous n’avez spécifié aucun nom de groupe',
-	'NO_EXT_GROUP_SPECIFIED' => 'Vous n’avez spécifié aucun groupe d’extensions.',
-	'NO_FILE_CAT'            => 'Aucune',
-	'NO_IMAGE'               => 'Aucune image',
-	'NO_UPLOAD_DIR'          => 'Le répertoire de transfert que vous avez spécifié est introuvable.',
-	'NO_WRITE_UPLOAD'        => 'Le répertoire de transfert que vous avez spécifié est en lecture seule. Veuillez modifier ses droits d’accès pour écriture par votre serveur.',
+	'NOT_ALLOWED_IN_PM'         => 'Autorisé uniquement dans les messages',
+	'NOT_ALLOWED_IN_PM_POST'    => 'Interdit',
+	'NOT_ASSIGNED'              => 'Non assigné',
+	'NO_ATTACHMENTS'            => 'Aucune pièce jointe.',
+	'NO_EXT_GROUP'              => 'Aucun',
+	'NO_EXT_GROUP_ALLOWED_PM'   => 'Il n’y a aucun <a href="%s">groupe d’extensions autorisé</a> pour les messages privés.',
+	'NO_EXT_GROUP_ALLOWED_POST' => 'Il n’y a aucun <a href="%s">groupe d’extensions autorisé</a> pour les messages.',
+	'NO_EXT_GROUP_NAME'         => 'Vous n’avez spécifié aucun nom de groupe',
+	'NO_EXT_GROUP_SPECIFIED'    => 'Vous n’avez spécifié aucun groupe d’extensions.',
+	'NO_FILE_CAT'               => 'Aucune',
+	'NO_IMAGE'                  => 'Aucune image',
+	'NO_UPLOAD_DIR'             => 'Le répertoire de transfert que vous avez spécifié est introuvable.',
+	'NO_WRITE_UPLOAD'           => 'Le répertoire de transfert que vous avez spécifié est en lecture seule. Veuillez modifier ses droits d’accès pour écriture par votre serveur.',
 
 	'ONLY_ALLOWED_IN_PM' => 'Autorisé uniquement dans les messages privés',
 	'ORDER_ALLOW_DENY'   => 'Autoriser',
@@ -158,11 +163,12 @@ $lang = array_merge($lang, [
 	'SUCCESS_EXTENSION_GROUP_ADD'    => 'Le groupe d’extensions a été ajouté.',
 	'SUCCESS_EXTENSION_GROUP_EDIT'   => 'Les groupes d’extensions ont été mis à jour.',
 
-	'UPLOADING_FILES'     => 'Transfert de fichiers',
-	'UPLOADING_FILE_TO'   => 'Transfert du fichier « %1$s » au message numéro %2$d…',
-	'UPLOAD_DENIED_FORUM' => 'Vous ne pouvez pas transférer de fichiers vers le forum « %s ».',
-	'UPLOAD_DIR'          => 'Répertoire de transfert',
-	'UPLOAD_DIR_EXPLAIN'  => 'Le répertoire de stockage des pièces jointes. Veuillez noter que si vous modifiez ce répertoire, vous devrez transférer manuellement toutes les pièces jointes existantes vers ce nouvel emplacement.',
-	'UPLOAD_ICON'         => 'Icône de transfert',
-	'UPLOAD_NOT_DIR'      => 'Le répertoire de transfert que vous avez spécifié est invalide.',
+	'UPLOADING_FILES'       => 'Transfert de fichiers',
+	'UPLOADING_FILE_TO'     => 'Transfert du fichier « %1$s » au message numéro %2$d…',
+	'UPLOAD_DENIED_FORUM'   => 'Vous ne pouvez pas transférer de fichiers vers le forum « %s ».',
+	'UPLOAD_DIR'            => 'Répertoire de transfert',
+	'UPLOAD_DIR_EXPLAIN'    => 'Le répertoire de stockage des pièces jointes. Veuillez noter que si vous modifiez ce répertoire, vous devrez transférer manuellement toutes les pièces jointes existantes vers ce nouvel emplacement.',
+	'UPLOAD_ICON'           => 'Icône de transfert',
+	'UPLOAD_NOT_DIR'        => 'Le répertoire de transfert que vous avez spécifié est invalide.',
+	'UPLOAD_POST_NOT_EXIST' => 'Le fichier « %1$s » ne peut pas être transféré vers le message numéro %2$d car le message n’existe pas.',
 ]);

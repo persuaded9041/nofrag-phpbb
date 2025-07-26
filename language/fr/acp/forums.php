@@ -4,6 +4,7 @@
  * phpBB forum software.
  *
  * @copyright (c) phpBB Limited <https://www.phpbb.com>
+ * @copyright (c) Qiaeru <https://www.qiaeru.com>
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * For more information about the language pack, please visit
@@ -76,7 +77,7 @@ $lang = array_merge($lang, [
 	'ENABLE_TOPIC_ICONS'         => 'Activer les icônes de sujet',
 
 	'FORUM_ADMIN'                    => 'Administration du forum',
-	'FORUM_ADMIN_EXPLAIN'            => 'Dans phpBB 3.2, tout est basé sur la notion de forum. Ainsi, même les catégories ne sont plus qu’un type de forum. Chaque forum peut contenir un nombre illimité de sous-forums et vous pouvez spécifier s’ils peuvent contenir ou non des messages (comme c’était le cas avec les anciennes catégories). Depuis cette page, vous pouvez, de manière individuelle, ajouter, modifier, supprimer, verrouiller ou déverrouiller les forums et définir certaines permissions additionnelles. Si certains messages et sujets ne sont plus synchronisés, vous pouvez également exécuter une resynchronisation. Si vous souhaitez que les forums que vous créez soient visibles publiquement, n’oubliez pas de copier ou de définir les permissions de chaque nouveau forum.',
+	'FORUM_ADMIN_EXPLAIN'            => 'Dans phpBB 3.3, tout est basé sur la notion de forum. Ainsi, même les catégories ne sont plus qu’un type de forum. Chaque forum peut contenir un nombre illimité de sous-forums et vous pouvez spécifier s’ils peuvent contenir ou non des messages (comme c’était le cas avec les anciennes catégories). Depuis cette page, vous pouvez, de manière individuelle, ajouter, modifier, supprimer, verrouiller ou déverrouiller les forums et définir certaines permissions additionnelles. Si certains messages et sujets ne sont plus synchronisés, vous pouvez également exécuter une resynchronisation. Si vous souhaitez que les forums que vous créez soient visibles publiquement, n’oubliez pas de copier ou de définir les permissions de chaque nouveau forum.',
 	'FORUM_AUTO_PRUNE'               => 'Activer le délestage automatique',
 	'FORUM_AUTO_PRUNE_EXPLAIN'       => 'Si cette option est activée, les sujets de ce forum seront délestés selon les paramètres de fréquence et d’intervalles du délestage automatique spécifiés ci-dessous.',
 	'FORUM_CREATED'                  => 'Le forum a été créé.',
@@ -96,7 +97,7 @@ $lang = array_merge($lang, [
 	'FORUM_LINK_TRACK_EXPLAIN'       => 'Le nombre de redirections effectués à partir du forum-lien seront comptabilisées et affichées.',
 	'FORUM_NAME'                     => 'Nom du forum',
 	'FORUM_NAME_EMPTY'               => 'Vous devez saisir le nom de ce forum.',
-	'FORUM_NAME_EMOJI'               => 'Le nom du forum que vous saisi est invalide.<br>Il contient les caractères suivants qui ne sont pas pris en charge :<br>%s',
+	'FORUM_NAME_EMOJI'               => 'Le nom du forum que vous saisi est invalide.<br>Il contient les caractères suivants qui ne sont pas pris en charge :<br>%s',
 	'FORUM_PARENT'                   => 'Forum parent',
 	'FORUM_PASSWORD'                 => 'Mot de passe du forum',
 	'FORUM_PASSWORD_CONFIRM'         => 'Confirmer le mot de passe du forum',
@@ -127,12 +128,14 @@ $lang = array_merge($lang, [
 
 	'GENERAL_FORUM_SETTINGS' => 'Paramètres généraux du forum',
 
-	'LINK'                   => 'Lien',
-	'LIST_INDEX'             => 'Lister ce forum dans la légende du forum parent',
-	'LIST_INDEX_EXPLAIN'     => 'Si cette option est activée, ce forum sera listé sur l’index du forum et sur divers endroits dans un lien disponible dans la légende du forum parent.',
-	'LIST_SUBFORUMS'         => 'Lister les sous-forums dans la légende de ce forum',
-	'LIST_SUBFORUMS_EXPLAIN' => 'Si cette option est activée, les sous-forums de ce forum seront listés sur l’index du forum et sur divers endroits dans un lien disponible dans la légende de ce forum.',
-	'LOCKED'                 => 'Verrouillé',
+	'LINK'                    => 'Lien',
+	'LIMIT_SUBFORUMS'         => 'Limiter la légende aux sous-forums enfants directs',
+	'LIMIT_SUBFORUMS_EXPLAIN' => 'Limite l’affichage des sous-forums aux sous-forums qui descendent directement du forum actuel. Si cette option est désactivée, les sous-forums seront affichés en prenant en compte l’option « Lister ce sous-forum dans la légende du forum parent », peu importe la profondeur.',
+	'LIST_INDEX'              => 'Lister ce sous-forum dans la légende du forum parent',
+	'LIST_INDEX_EXPLAIN'      => 'Si cette option est activée, ce sous-forum sera listé sur l’index du forum et sur divers endroits dans un lien disponible dans la légende du forum parent.',
+	'LIST_SUBFORUMS'          => 'Lister les sous-forums dans la légende de ce forum',
+	'LIST_SUBFORUMS_EXPLAIN'  => 'Si cette option est activée, les sous-forums de ce forum seront listés sur l’index du forum et sur divers endroits dans un lien disponible dans la légende de ce forum.',
+	'LOCKED'                  => 'Verrouillé',
 
 	'MOVE_POSTS_NO_POSTABLE_FORUM' => 'Ce forum ne peut pas recevoir le contenu que vous souhaitez déplacer. Veuillez sélectionner un forum dans lequel il est possible de publier des messages.',
 	'MOVE_POSTS_TO'                => 'Déplacer les messages dans',

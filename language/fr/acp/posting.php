@@ -4,6 +4,7 @@
  * phpBB forum software.
  *
  * @copyright (c) phpBB Limited <https://www.phpbb.com>
+ * @copyright (c) Qiaeru <https://www.qiaeru.com>
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * For more information about the language pack, please visit
@@ -41,7 +42,7 @@ $lang = array_merge($lang, [
 	'ACP_BBCODES_EXPLAIN' => 'Le BBCode est une implémentation spéciale du code HTML qui offre un meilleur contrôle sur la mise en forme. De cette page, vous pouvez ajouter, supprimer et modifier des BBCodes personnalisés.',
 	'ADD_BBCODE'          => 'Ajouter un nouveau BBCode',
 
-	'BBCODE_DANGER'         => 'Le BBCode que vous essayez d’ajouter semble utiliser une chaîne de symboles « {TEXT} » dans un attribut HTML. Cela peut présenter une éventuelle faille de sécurité XSS. Veuillez plutôt essayer d’utiliser un type plus restrictif, tel que « {SIMPLETEXT} » ou « {INTTEXT} ». Ne procédez à cette opération que si vous comprenez les risque encourus et que vous considérez que l’utilisation de « {TEXT} » est absolumement inévitable.',
+	'BBCODE_DANGER'         => 'Le BBCode que vous essayez d’ajouter semble représenter une vulnérabilité. Si le BBCode utilise une chaîne de symboles « {TEXT} » dans un contexte sensible, privilégiez plutôt l’utilisation d’un type plus restrictif. Ne procédez à cette opération que si vous comprenez parfaitement les risques encourus.',
 	'BBCODE_DANGER_PROCEED' => 'Procéder', //'I understand the risk',
 
 	'BBCODE_ADDED'             => 'Le BBCode a été ajouté.',
@@ -55,6 +56,7 @@ $lang = array_merge($lang, [
 
 	'BBCODE_INVALID_TAG_NAME' => 'Le nom de la balise BBCode que vous avez spécifié existe déjà.',
 	'BBCODE_INVALID'          => 'Votre BBCode est construit dans une architecture invalide.',
+	'BBCODE_INVALID_TEMPLATE' => 'Votre modèle de BBCode est invalide.',
 	'BBCODE_TAG'              => 'Balise',
 	'BBCODE_TAG_TOO_LONG'     => 'Le nom de la balise que vous avez spécifié est trop long.',
 	'BBCODE_TAG_DEF_TOO_LONG' => 'La définition de la balise que vous avez spécifiée est trop longue, veuillez la raccourcir.',
@@ -86,6 +88,20 @@ $lang = array_merge($lang, [
 		'LOCAL_URL'    => 'Une adresse universelle locale. L’adresse doit être relative à la page du sujet et ne doit pas contenir de nom de serveur ou de protocole, tels que des liens qui sont précédés de « %s »',
 		'RELATIVE_URL' => 'Une adresse universelle relative. Vous pouvez utiliser des résultats partiels d’une adresse universelle, mais soyez vigilant, car une adresse universelle complète est une adresse universelle relative valide. Lorsque vous souhaitez utiliser les adresses universelles relatives de votre forum, utilisez la variable « LOCAL_URL ».',
 		'COLOR'        => 'Une couleur HTML qui peut être dans une forme hexadécimale « #FF1234 » ou un <a href="https://www.w3.org/TR/css3-color/#colorunits">nom de couleur CSS</a> (en anglais), tel que « black » ou « fuchsia ».',
+		'ALNUM'        => 'Caractères de l’alphabet latin (A-Z) et chiffres.',
+		'CHOICE'       => 'Un choix de valeurs spécifiées, par exemple <samp>{CHOICE=pique,cœur,carreau,trèfle}</samp>. Les valeurs sont traitées comme insensibles à la casse par défaut et peuvent être traitées comme sensibles à la casse en spécifiant l’option <samp>caseSensitive</samp> : <samp>{CHOICE=pique,cœur,carreau,trèfle;caseSensitive}</samp>',
+		'FLOAT'        => 'Une valeur décimale, par exemple <samp>0.5</samp>.',
+		'HASHMAP'      => 'Associe des chaînes à leur remplaçant sous la forme <samp>{HASHMAP=chaîne1:remplacement1,chaîne2:remplacement2}</samp>. Sensible à la casse. Préserve les valeurs inconnues par défaut.',
+		'INT'          => 'Une valeur entière, par exemple <samp>2</samp>.',
+		'IP'           => 'Une adresse IPv4 ou IPv6 valide.',
+		'IPPORT'       => 'Une adresse IPv4 ou IPv6 valide avec un numéro de port.',
+		'IPV4'         => 'Une adresse IPv4 valide.',
+		'IPV6'         => 'Une adresse IPv6 valide.',
+		'MAP'          => 'Associe des chaînes à leur remplaçant sous la forme <samp>{MAP=chaîne1:remplacement1,chaîne2:remplacement2}</samp>. Insensible à la casse. Préserve les valeurs inconnues par défaut.',
+		'RANGE'        => 'Accepte un entier dans l’intervalle donné, par exemple <samp>{RANGE=-10,42}</samp>.',
+		'REGEXP'       => 'Valide sa valeur par rapport à une expression rationnelle donnée, par exemple <samp>{REGEXP=/^foo\w+bar$/}</samp>.',
+		'TIMESTAMP'    => 'Un horodatage tel que <samp>1h30m10s</samp> qui sera converti en nombre de secondes. Accepte également un nombre.',
+		'UINT'         => 'Une valeur entière non signée. Identique à <samp>{INT}</samp>, mais rejette les valeurs inférieures à 0.',
 	],
 ]);
 

@@ -4,6 +4,7 @@
  * phpBB forum software.
  *
  * @copyright (c) phpBB Limited <https://www.phpbb.com>
+ * @copyright (c) Qiaeru <https://www.qiaeru.com>
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * For more information about the language pack, please visit
@@ -36,14 +37,14 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, [
-	'TRANSLATION_INFO' => '<a href="https://www.phpbb.com/customise/db/translation/french/">Traduction française officielle</a> &copy; <a href="https://mastodon.social/@milescellar">Miles Cellar</a>',
+	'TRANSLATION_INFO' => '<a href="https://www.phpbb.com/customise/db/translation/french/">Traduction française officielle</a> &copy; <a href="https://www.qiaeru.com">Qiaeru</a>',
 	'DIRECTION'        => 'ltr',
 	'DATE_FORMAT'      => '|d F Y|', // 01 January 2007 (with Relative days enabled)
 	'DATETIME_FORMAT'  => '|d F Y, H:i|', // 01 January 2007, 13:37 (with Relative days enabled)
 	'USER_LANG'        => 'fr',
 
 	// You can define different rules for the determination of plural forms here.
-	// See https://area51.phpbb.com/docs/dev/32x/language/plurals.html for more information
+	// See https://area51.phpbb.com/docs/dev/3.3.x/language/plurals.html for more information
 	// or ask the translation manager for help.
 	'PLURAL_RULE' => 2,
 
@@ -59,6 +60,7 @@ $lang = array_merge($lang, [
 	'ACCOUNT_DEACTIVATED'                                => 'Votre compte a été désactivé manuellement et ne peut être réactivé que par un administrateur.',
 	'ACP'                                                => 'Panneau de contrôle d’administration',
 	'ACP_SHORT'                                          => 'PCA',
+	'ACTIVATION_ALREADY_SENT'                            => 'Le courriel d’activation a déjà été envoyé à votre adresse de courriel. Vous pouvez réessayer après 24 heures. Si vous continuez à rencontrer des problèmes pour activer votre compte, veuillez contacter un administrateur du forum.',
 	'ACTIVE'                                             => 'actif',
 	'ACTIVE_ERROR'                                       => 'Le nom d’utilisateur que vous avez spécifié est actuellement inactif. Si vous rencontrez des difficultés lors de l’activation de votre compte, veuillez contacter un administrateur du forum.',
 	'ADMINISTRATOR'                                      => 'Administrateur',
@@ -86,9 +88,11 @@ $lang = array_merge($lang, [
 	'ATTACHED_IMAGE_NOT_IMAGE'                           => 'L’image que vous avez souhaité transférer est invalide.',
 	'AUTHOR'                                             => 'Auteur',
 	'AUTH_NO_PROFILE_CREATED'                            => 'Une erreur est survenue lors de la création du profil de l’utilisateur.',
-	'AUTH_PROVIDER_OAUTH_ERROR_ALREADY_LINKED'           => 'Le compte est déjà lié à un autre utilisateur.',
+	'AUTH_PROVIDER_OAUTH_ERROR_ALREADY_LINKED'           => 'Ce service externe est déjà associé à un autre compte de ce forum.',
 	'AUTH_PROVIDER_OAUTH_ERROR_INVALID_ENTRY'            => 'L’entrée de la base de données est invalide.',
 	'AUTH_PROVIDER_OAUTH_ERROR_INVALID_SERVICE_TYPE'     => 'Le type de service spécifié dans le gestionnaire de service OAuth est invalide.',
+	'AUTH_PROVIDER_OAUTH_ERROR_REQUEST'                  => 'Une erreur est survenue lors du traitement de votre requête OAuth.',
+	'AUTH_PROVIDER_OAUTH_RETURN_ERROR'                   => 'Le service externe a renvoyé une valeur erronée. Votre demande ne peut donc pas être traitée.',
 	'AUTH_PROVIDER_OAUTH_ERROR_SERVICE_NOT_CREATED'      => 'Le service OAuth n’a pas été créé',
 	'AUTH_PROVIDER_OAUTH_SERVICE_BITLY'                  => 'Bitly',
 	'AUTH_PROVIDER_OAUTH_SERVICE_FACEBOOK'               => 'Facebook',
@@ -104,6 +108,8 @@ $lang = array_merge($lang, [
 	'AVATAR_NOT_UPLOADED'                                => 'Une erreur est survenue lors du transfert de l’avatar.',
 	'AVATAR_NO_TEMP_DIR'                                 => 'Le répertoire temporaire est introuvable ou est en lecture seule.',
 	'AVATAR_NO_SIZE'                                     => 'La taille de l’avatar lié n’a pas pu être détectée automatiquement. Veuillez la saisir manuellement.',
+	'AVATAR_NO_UPLOAD_DIR'                               => 'Le chemin de stockage de l’avatar n’existe pas ou est en lecture seule.',
+	'AVATAR_NO_UPLOAD_PATH'                              => 'Le transfert d’avatars est bien activé mais le chemin de stockage de l’avatar n’a pas été spécifié.',
 	'AVATAR_PARTIAL_UPLOAD'                              => 'Le fichier que vous avez spécifié n’a pas été totalement transféré.',
 	'AVATAR_PHP_SIZE_NA'                                 => 'La taille de l’avatar est trop importante.<br>La taille maximale autorisée, située dans le fichier « php.ini », n’a pas pu être détectée.',
 	'AVATAR_PHP_SIZE_OVERRUN'                            => 'La taille de l’avatar est trop importante. La taille maximale autorisée est de %1$d %2$s.<br>Veuillez noter que cette valeur est située dans le fichier « php.ini » et qu’elle ne peut pas être remplacée.',
@@ -112,7 +118,7 @@ $lang = array_merge($lang, [
 	'AVATAR_URL_INVALID'                                 => 'Le lien que vous avez spécifié est invalide.',
 	'AVATAR_URL_NOT_FOUND'                               => 'Le fichier que vous avez spécifié est introuvable.',
 	'AVATAR_WRONG_FILESIZE'                              => 'La taille de l’avatar doit être comprise entre 0 et %1$d %2$s.',
-	'AVATAR_WRONG_SIZE'                                  => 'La taille de l’avatar que vous avez transféré mesure %5$s de large et %6$s de haut. La taille des avatars doit mesurer entre %1$s de large et %2$s de haut mais ne doit pas dépasser %3$s de large et %4$s de haut.',
+	'AVATAR_WRONG_SIZE'                                  => 'La taille de l’avatar que vous avez transféré est %5$s de large et %6$s de haut. Les avatars doivent mesurer au minimum %1$s de large et %2$s de haut et ne doivent pas dépasser %3$s de large et %4$s de haut.',
 
 	'BACK_TO_TOP'            => 'Haut',
 	'BACK_TO_PREV'           => 'Revenir à la page précédente',
@@ -151,17 +157,23 @@ $lang = array_merge($lang, [
 	'BYTES'               => 'octets',
 	'BYTES_SHORT'         => 'o',
 
-	'CANCEL'               => 'Annuler',
-	'CHANGE'               => 'Modifier',
-	'CHANGE_FONT_SIZE'     => 'Modifier la taille de la police de caractères',
-	'CHANGING_PREFERENCES' => 'Modifie les préférences du forum',
-	'CHANGING_PROFILE'     => 'Modifie les paramètres du profil',
-	'CHARACTERS'           => [
+	'CANCEL'                => 'Annuler',
+	'CHANGE'                => 'Modifier',
+	'CHANGE_FONT_SIZE'      => 'Modifier la taille de la police de caractères',
+	'CHANGING_PREFERENCES'  => 'Modifie les préférences du forum',
+	'CHANGING_PROFILE'      => 'Modifie les paramètres du profil',
+	'CHARACTERS'            => [
+		1 => '%d caractère',
+		2 => '%d caractères',
+	],
+	// Special version to be used when describing ranges e.g. "min x characters and max y characters"
+	'CHARACTERS_XY'         => [
 		1 => '%d caractère',
 		2 => '%d caractères',
 	],
 	'COLLAPSE_VIEW'         => 'Réduire',
 	'CLOSE_WINDOW'          => 'Fermer la fenêtre',
+	'CODE'                  => 'Code',
 	'COLOUR_SWATCH'         => 'Palette de couleurs',
 	'COLON'                 => ' :',
 	'COMMA_SEPARATOR'       => ', ', // Comma used to join lists into a single string, use localised comma if appropriate, eg: Ideographic or Arabic
@@ -184,24 +196,25 @@ $lang = array_merge($lang, [
 	'COOKIES_DELETED'       => 'Les cookies du forum ont été supprimés.',
 	'CURRENT_TIME'          => 'Nous sommes le %s',
 
-	'DAY'              => 'jour',
-	'DAYS'             => 'jours',
-	'DELETE'           => 'Supprimer',
-	'DELETE_ALL'       => 'Tout supprimer',
-	'DELETE_COOKIES'   => 'Supprimer les cookies',
-	'DELETE_MARKED'    => 'Supprimer la sélection',
-	'DELETE_POST'      => 'Supprimer le message',
-	'DELIMITER'        => 'Séparateur',
-	'DESCENDING'       => 'Décroissant',
-	'DISABLED'         => 'Désactivé',
-	'DISPLAY'          => 'Afficher',
-	'DISPLAY_GUESTS'   => 'Afficher les invités',
-	'DISPLAY_MESSAGES' => 'Afficher les messages privés publiés depuis',
-	'DISPLAY_POSTS'    => 'Afficher les messages publiés depuis',
-	'DISPLAY_TOPICS'   => 'Afficher les sujets publiés depuis',
-	'DOWNLOADED'       => 'Téléchargé',
-	'DOWNLOADING_FILE' => 'Téléchargement du fichier',
-	'DOWNLOAD_COUNTS'  => [
+	'DAY'                       => 'jour',
+	'DAYS'                      => 'jours',
+	'DELETE'                    => 'Supprimer',
+	'DELETE_ALL'                => 'Tout supprimer',
+	'DELETE_COOKIES'            => 'Supprimer les cookies',
+	'DELETE_MARKED'             => 'Supprimer la sélection',
+	'DELETE_POST'               => 'Supprimer le message',
+	'DELIMITER'                 => 'Séparateur',
+	'DESCENDING'                => 'Décroissant',
+	'DISABLED'                  => 'Désactivé',
+	'DISPLAY'                   => 'Afficher',
+	'DISPLAY_GUESTS'            => 'Afficher les invités',
+	'DISPLAY_MESSAGES'          => 'Afficher les messages privés publiés depuis',
+	'DISPLAY_POSTS'             => 'Afficher les messages publiés depuis',
+	'DISPLAY_TOPICS'            => 'Afficher les sujets publiés depuis',
+	'DOMAIN_NO_MX_RECORD_EMAIL' => 'Le domaine de cette adresse de courriel ne contient pas d’enregistrement MX valide.',
+	'DOWNLOADED'                => 'Téléchargé',
+	'DOWNLOADING_FILE'          => 'Téléchargement du fichier',
+	'DOWNLOAD_COUNTS'           => [
 		0 => 'Téléchargé 0 fois',
 		1 => 'Téléchargé %d fois',
 		2 => 'Téléchargé %d fois',
@@ -262,6 +275,17 @@ $lang = array_merge($lang, [
 	'FSOCK_DISABLED'        => 'L’opération a échoué car la fonction « fsockopen » est désactivée ou le serveur interrogé est introuvable.',
 	'FSOCK_TIMEOUT'         => 'Le délai de réponse a expiré lors de la lecture du flux réseau.',
 
+	'FILESYSTEM_CANNOT_CHANGE_FILE_GROUP'       => 'Impossible de modifier le groupe du fichier',
+	'FILESYSTEM_CANNOT_CHANGE_FILE_PERMISSIONS' => 'Impossible de modifier les permissions du fichier',
+	'FILESYSTEM_CANNOT_COPY_FILES'              => 'Impossible de copier les fichiers',
+	'FILESYSTEM_CANNOT_CREATE_SYMLINK'          => 'Impossible de créer un lien symbolique',
+	'FILESYSTEM_CANNOT_CREATE_DIRECTORY'        => 'Impossible de créer le répertoire',
+	'FILESYSTEM_CANNOT_DELETE_FILES'            => 'Impossible de supprimer les fichiers du système',
+	'FILESYSTEM_CANNOT_DUMP_FILE'               => 'Impossible de vider le contenu du fichier',
+	'FILESYSTEM_CANNOT_MIRROR_DIRECTORY'        => 'Impossible de répliquer le répertoire',
+	'FILESYSTEM_CANNOT_RENAME_FILE'             => 'Impossible de renommer un fichier du système',
+	'FILESYSTEM_CANNOT_TOUCH_FILES'             => 'Impossible de créer ou de modifier les horodatages des fichiers',
+
 	'FTP_FSOCK_HOST'              => 'Hôte FTP',
 	'FTP_FSOCK_HOST_EXPLAIN'      => 'Le serveur FTP qui est utilisé afin de vous connecter à votre site.',
 	'FTP_FSOCK_PASSWORD'          => 'Mot de passe FTP',
@@ -292,7 +316,6 @@ $lang = array_merge($lang, [
 	'GB'                  => 'Go',
 	'GIB'                 => 'Gio',
 	'GO'                  => 'Aller',
-	'GOOGLEPLUS'          => 'Google+',
 	'GOTO_FIRST_POST'     => 'Aller au premier message',
 	'GOTO_LAST_POST'      => 'Aller au dernier message',
 	'GOTO_PAGE'           => 'Aller à la page',
@@ -326,10 +349,12 @@ $lang = array_merge($lang, [
 		1 => '%d invisible',
 		2 => '%d invisibles',
 	],
-	'HIDE_GUESTS' => 'Masquer les invités',
-	'HIDE_ME'     => 'Masquer ma présence lors de cette session',
-	'HOURS'       => 'Heures',
-	'HOME'        => 'Accueil',
+	'HIDE_GUESTS'            => 'Masquer les invités',
+	'HIDE_ME'                => 'Masquer ma présence lors de cette session',
+	'HOURS'                  => 'Heures',
+	'HOME'                   => 'Accueil',
+	'HTTP_HANDLER_NOT_FOUND' => 'L’opération n’a pas pu être effectuée car l’extension PHP « cURL » et le paramètre PHP ini « allow_url_fopen » ont été désactivés et aucun autre gestionnaire HTTP n’a pu être trouvé.',
+ 
 
 	'ICQ'                      => 'ICQ',
 	'IF'                       => 'Si',
@@ -367,7 +392,7 @@ $lang = array_merge($lang, [
 	'LDAP_SEARCH_FAILED'                       => 'Le répertoire LDAP est introuvable.',
 	'LEGEND'                                   => 'Légende',
 	'LIVE_SEARCHES_NOT_ALLOWED'                => 'Les prédictions de recherche ne sont pas autorisées.',
-	'LOADING'                                  => 'Chargement',
+	'LOADING'                                  => 'Chargement…',
 	'LOCATION'                                 => 'Localisation',
 	'LOCK_POST'                                => 'Verrouiller le message',
 	'LOCK_POST_EXPLAIN'                        => 'Il ne pourra plus être modifié',
@@ -376,7 +401,7 @@ $lang = array_merge($lang, [
 	'LOGIN_CHECK_PM'                           => 'Connectez-vous afin de consulter vos messages privés.',
 	'LOGIN_CONFIRMATION'                       => 'Confirmation de connexion',
 	'LOGIN_CONFIRM_EXPLAIN'                    => 'Pour des raisons de sécurité, vous devez saisir un code de confirmation après avoir échoué plusieurs fois lors de vos tentatives de connexion. Le code est affiché dans l’image affichée ci-dessous. Si vous éprouvez des difficultés à lire ce code correctement, veuillez contacter un %sadministrateur du forum%s.', // Unused
-	'LOGIN_ERROR_ATTEMPTS'                     => 'Vous avez dépassé le nombre maximal de tentatives de connexion autorisées. En plus de votre nom d’utilisateur et de votre mot de passe, vous devez à présent résoudre le CAPTCHA affiché ci-dessous.',
+	'LOGIN_ERROR_ATTEMPTS'                     => 'Vous avez dépassé le nombre maximal de tentatives de connexion autorisées. En plus de renseigner votre nom d’utilisateur et de votre mot de passe, vous devez également passer le test CAPTCHA.',
 	'LOGIN_ERROR_EXTERNAL_AUTH_APACHE'         => 'Une erreur est survenue lors de votre authentification par Apache.',
 	'LOGIN_ERROR_OAUTH_SERVICE_DOES_NOT_EXIST' => 'Le service OAuth est introuvable.',
 	'LOGIN_ERROR_PASSWORD'                     => 'Le mot de passe que vous avez spécifié est incorrect. Veuillez vérifier votre mot de passe et réessayer. Si ce problème persiste, veuillez contacter un %sadministrateur du forum%s.',
@@ -411,6 +436,7 @@ $lang = array_merge($lang, [
 	'MESSAGE'             => 'Message',
 	'MESSAGES'            => 'Messages',
 	'MESSAGES_COUNT'      => [
+		0 => 'Messages illimités',
 		1 => '%d message',
 		2 => '%d messages',
 	],
@@ -474,6 +500,7 @@ $lang = array_merge($lang, [
 	'NOTIFICATION_REFERENCE'           => '« %1$s »',
 	'NOTIFICATION_REASON'              => '<em>Raison :</em> %1$s.',
 	'NOTIFICATION_REPORT_PM'           => '<strong>Rapport d’un message privé</strong> par %1$s :',
+	'NOTIFICATION_REPORT_PM_CLOSED'    => '<strong>Rapport d’un message privé clôturé</strong> par %1$s :',
 	'NOTIFICATION_REPORT_POST'         => '<strong>Rapport d’un message</strong> par %1$s :',
 	'NOTIFICATION_REPORT_CLOSED'       => '<strong>Clôture d’un rapport</strong> par %1$s pour :',
 	'NOTIFICATION_TOPIC'               => '<strong>Publication d’un sujet</strong> par %1$s :',
@@ -519,7 +546,7 @@ $lang = array_merge($lang, [
 	'NO_FEED_ENABLED'           => 'Les flux ne sont pas disponibles sur ce forum.',
 	'NO_FEED'                   => 'Le flux que vous souhaitez consulter n’est pas disponible.',
 	'NO_STYLE_DATA'             => 'Impossible d’accéder aux données du style concernant l’« user_style » %s paramétré pour le « user_id » %s',
-	'NO_STYLE_CFG'              => 'Impossible d’accéder au fichier de configuration du style concernant : %s',
+	'NO_STYLE_CFG'              => 'Impossible d’accéder au fichier de configuration du style concernant : %s',
 	'NO_SUBJECT'                => 'Aucun sujet n’a été spécifié', // Used for posts having no subject defined but displayed within management pages.
 	'NO_SUCH_SEARCH_MODULE'     => 'Le module de recherche que vous avez spécifié est introuvable.',
 	'NO_SUPPORTED_AUTH_METHODS' => 'Aucune méthode d’authentification n’est prise en charge.',
@@ -585,7 +612,7 @@ $lang = array_merge($lang, [
 	'POSTS_UNAPPROVED_FORUM'  => 'Au moins un message de ce forum n’a pas été approuvé.',
 	'POST_BY_AUTHOR'          => 'par',
 	'POST_BY_FOE'             => '<strong>%1$s</strong>, qui est actuellement dans votre liste d’utilisateurs ignorés, a publié ce message.',
-	'POST_DISPLAY'            => '%1$sAfficher le message%2$s.',
+	'POST_DISPLAY'            => 'Afficher ce message',
 	'POST_DAY'                => '%.2f messages par jour',
 	'POST_DELETED_ACTION'     => 'Message supprimé :',
 	'POST_DELETED'            => 'Ce message a été supprimé.',
@@ -602,17 +629,21 @@ $lang = array_merge($lang, [
 	'POST_TIME'               => 'Date du message',
 	'POST_TOPIC'              => 'Publier un nouveau sujet',
 	'POST_UNAPPROVED_ACTION'  => 'Message en attente d’approbation :',
-	'POST_UNAPPROVED'         => 'Ce message n’a pas encore été approuvé.',
+	'POST_UNAPPROVED'         => 'Ce message n’a pas été approuvé.',
+	'POST_UNAPPROVED_EXPLAIN' => 'Ce message ne sera visible aux autres utilisateurs que lorsqu’il sera approuvé.',
 	'POWERED_BY'              => 'Développé par %s',
-	'PREVIEW'                 => 'Prévisualiser',
-	'PREVIOUS'                => 'Précédent', // Used in pagination
-	'PREVIOUS_STEP'           => 'Précédent',
-	'PRIVACY'                 => 'Politique de confidentialité',
-	'PRIVACY_LINK'            => 'Confidentialité',
-	'PRIVATE_MESSAGE'         => 'Message privé',
-	'PRIVATE_MESSAGES'        => 'Messages privés',
-	'PRIVATE_MESSAGING'       => 'Messagerie privée',
-	'PROFILE'                 => 'Panneau de contrôle de l’utilisateur',
+
+	'QUOTE' => 'Citation',
+
+	'PREVIEW'           => 'Prévisualiser',
+	'PREVIOUS'          => 'Précédent', // Used in pagination
+	'PREVIOUS_STEP'     => 'Précédent',
+	'PRIVACY'           => 'Politique de confidentialité',
+	'PRIVACY_LINK'      => 'Confidentialité',
+	'PRIVATE_MESSAGE'   => 'Message privé',
+	'PRIVATE_MESSAGES'  => 'Messages privés',
+	'PRIVATE_MESSAGING' => 'Messagerie privée',
+	'PROFILE'           => 'Panneau de contrôle de l’utilisateur',
 
 	'QUICK_LINKS' => 'Raccourcis',
 
@@ -655,6 +686,10 @@ $lang = array_merge($lang, [
 	'RETURN_TOPIC'             => '%sRevenir au dernier sujet visité%s',
 	'RETURN_TO'                => 'Revenir à « %s »',
 	'RETURN_TO_INDEX'          => 'Revenir à l’accueil du forum',
+
+	'ROUTE_NOT_FOUND'              => 'La route demandée « %s » n’a pas pu être trouvée.',
+	'ROUTE_INVALID_MISSING_PARAMS' => 'Paramètres invalides ou manquants pour la route « %s ».',
+
 	'FEED'                     => 'Flux',
 	'FEED_NEWS'                => 'Nouveautés',
 	'FEED_TOPICS_ACTIVE'       => 'Sujets actifs',

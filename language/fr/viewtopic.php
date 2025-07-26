@@ -4,6 +4,7 @@
  * phpBB forum software.
  *
  * @copyright (c) phpBB Limited <https://www.phpbb.com>
+ * @copyright (c) Qiaeru <https://www.qiaeru.com>
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * For more information about the language pack, please visit
@@ -47,8 +48,6 @@ $lang = array_merge($lang, [
 	'BOOKMARK_TOPIC_REMOVE' => 'Supprimer ce sujet de vos favoris',
 	'BUMPED_BY'             => 'Dernière remontée par %1$s le %2$s.',
 	'BUMP_TOPIC'            => 'Remonter le sujet',
-
-	'CODE' => 'Code',
 
 	'DELETE_TOPIC'        => 'Supprimer le sujet',
 	'DELETED_INFORMATION' => 'Supprimé par %1$s le %2$s',
@@ -97,7 +96,6 @@ $lang = array_merge($lang, [
 
 	'QUICK_MOD'  => 'Actions rapides de modération',
 	'QUICKREPLY' => 'Réponse rapide',
-	'QUOTE'      => 'Citation',
 
 	'REPLY_TO_TOPIC' => 'Répondre au sujet',
 	'RESTORE'        => 'Restaurer',
@@ -114,6 +112,7 @@ $lang = array_merge($lang, [
 	'VIEW_INFO'           => 'Informations sur le message',
 	'VIEW_NEXT_TOPIC'     => 'Sujet suivant',
 	'VIEW_PREVIOUS_TOPIC' => 'Sujet précédent',
+	'VIEW_QUOTED_POST'    => 'Consulter le message cité',
 	'VIEW_RESULTS'        => 'Consulter les résultats',
 	'VIEW_TOPIC_POSTS'    => [
 		1 => '%d message',

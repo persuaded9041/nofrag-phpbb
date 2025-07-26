@@ -4,6 +4,7 @@
  * phpBB forum software.
  *
  * @copyright (c) phpBB Limited <https://www.phpbb.com>
+ * @copyright (c) Qiaeru <https://www.qiaeru.com>
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * For more information about the language pack, please visit
@@ -172,10 +173,11 @@ $lang = array_merge($lang, [
 	'ACP_SERVER_SETTINGS'      => 'Paramètres du serveur',
 	'ACP_SIGNATURE_SETTINGS'   => 'Paramètres des signatures',
 	'ACP_SMILIES'              => 'Émoticônes',
-	'ACP_STYLE_MANAGEMENT'     => 'Gestion des styles',
-	'ACP_STYLES'               => 'Styles',
-	'ACP_STYLES_CACHE'         => 'Vider le cache',
-	'ACP_STYLES_INSTALL'       => 'Installer des styles',
+
+	'ACP_STYLE_MANAGEMENT' => 'Gestion des styles',
+	'ACP_STYLES'           => 'Styles',
+	'ACP_STYLES_CACHE'     => 'Vider le cache',
+	'ACP_STYLES_INSTALL'   => 'Installer des styles',
 
 	'ACP_SUBMIT_CHANGES' => 'Sauvegarder les modifications',
 
@@ -225,25 +227,17 @@ $lang = array_merge($lang, [
 
 	'BACK' => 'Retour',
 
-	'CANNOT_CHANGE_FILE_GROUP'       => 'Impossible de modifier le groupe du fichier',
-	'CANNOT_CHANGE_FILE_PERMISSIONS' => 'Impossible de modifier les permissions du fichier',
-	'CANNOT_COPY_FILES'              => 'Impossible de copier les fichiers',
-	'CANNOT_CREATE_SYMLINK'          => 'Impossible de créer un lien symbolique',
-	'CANNOT_DELETE_FILES'            => 'Impossible de supprimer les fichiers du système',
-	'CANNOT_DUMP_FILE'               => 'Impossible de vider le fichier',
-	'CANNOT_MIRROR_DIRECTORY'        => 'Impossible de répliquer le répertoire',
-	'CANNOT_RENAME_FILE'             => 'Impossible de renommer un fichier du système',
-	'CANNOT_TOUCH_FILES'             => 'Impossible de déterminer si le fichier existe',
-
 	'CONTAINER_EXCEPTION' => 'Une erreur est survenue lors de la construction du conteneur en raison d’une extension installée. Par mesure de sécurité, toutes les extensions ont été temporairement désactivées. Veuillez essayer de vider le cache de votre forum. Toutes les extensions seront automatiquement réactivées lorsque cette erreur de conteneur sera corrigée. Si cette erreur persiste, veuillez demander une assistance sur <a href="https://www.phpbb.com/support">notre site internet</a> (en anglais).',
 	'EXCEPTION'           => 'Exception',
 
-	'COLOUR_SWATCH'     => 'Palette de couleurs internet',
+	'COLOUR_SWATCH' => 'Palette de couleurs internet',
+
 	'CONFIG_UPDATED'    => 'La configuration a été mise à jour.',
 	'CRON_LOCK_ERROR'   => 'Impossible d’obtenir le verrouillage de « cron ».',
 	'CRON_NO_SUCH_TASK' => 'La tâche cron « %s » est introuvable.',
 	'CRON_NO_TASK'      => 'Aucune tâche « cron » ne doit être exécutée.',
 	'CRON_NO_TASKS'     => 'Aucune tâche « cron » n’est disponible.',
+	'CSV_INVALID'       => 'Le paramètre spécifié « %1$s », séparé par des virgules, est invalide. Les valeurs ne doivent être délimitées que par une virgule et ne doivent pas contenir de délimiteurs de début ou de fin.',
 	'CURRENT_VERSION'   => 'Version actuelle',
 
 	'DEACTIVATE'               => 'Désactiver',
@@ -324,7 +318,8 @@ $lang = array_merge($lang, [
 	'TOTAL_SIZE'      => 'Taille totale',
 
 	'UCP'                => 'Panneau de contrôle de l’utilisateur',
-	'URL_INVALID'        => 'L’adresse spécifiée concernant le paramètre « %1$s » est invalide.',
+	'URL_INVALID'        => 'L’adresse spécifiée concernant le paramètre « %1$s » est invalide.',
+	'URL_SCHEME_INVALID' => 'Le schéma spécifié « %2$s » dans le paramètre « %1$s » séparé par des virgules est invalide. Le schéma doit commencer par un caractère latin suivi de caractères alphanumériques, de tirets ou de points.',
 	'USERNAMES_EXPLAIN'  => 'Veuillez insérer chaque nom d’utilisateur sur une nouvelle ligne.',
 	'USER_CONTROL_PANEL' => 'Panneau de contrôle de l’utilisateur',
 
@@ -378,9 +373,11 @@ $lang = array_merge($lang, [
 	'ERROR_MBSTRING_ENCODING_TRANSLATION'         => 'L’encodage des caractères transparents n’est pas correctement configuré',
 	'ERROR_MBSTRING_ENCODING_TRANSLATION_EXPLAIN' => 'La variable « mbstring.encoding_translation » doit être réglée sur « 0 ». Vous pouvez consulter la valeur actuelle sur la page « Informations sur PHP ».',
 	'ERROR_MBSTRING_HTTP_INPUT'                   => 'La conversion des caractères d’entrée HTTP n’est pas correctement configurée',
-	'ERROR_MBSTRING_HTTP_INPUT_EXPLAIN'           => 'La variable « mbstring.http_input » doit être paramétrée sur « pass ». Vous pouvez consulter la valeur actuelle sur la page « Informations sur PHP ».',
+	'ERROR_MBSTRING_HTTP_INPUT_EXPLAIN'           => 'La variable « mbstring.http_input » doit être laissée vide. Vous pouvez consulter la valeur actuelle sur la page « Informations sur PHP ».',
 	'ERROR_MBSTRING_HTTP_OUTPUT'                  => 'La conversion des caractères de sortie HTTP n’est pas correctement configurée',
-	'ERROR_MBSTRING_HTTP_OUTPUT_EXPLAIN'          => 'La variable « mbstring.http_output » doit être paramétrée sur « pass ». Vous pouvez consulter la valeur actuelle sur la page « Informations sur PHP ».',
+	'ERROR_MBSTRING_HTTP_OUTPUT_EXPLAIN'          => 'La variable « mbstring.http_output » doit être laissée vide. Vous pouvez consulter la valeur actuelle sur la page « Informations sur PHP ».',
+	'ERROR_DEFAULT_CHARSET'                       => 'Le jeu de caractères par défaut est mal configuré',
+	'ERROR_DEFAULT_CHARSET_EXPLAIN'               => 'La variable « default_charset » doit être réglée sur « UTF-8 ». Vous pouvez consulter la valeur actuelle sur la page « Informations sur PHP ».',
 
 	'FILES_PER_DAY' => 'Moyenne de pièces jointes par jour',
 	'FORUM_STATS'   => 'Statistiques du forum',
@@ -509,13 +506,13 @@ $lang = array_merge($lang, [
 	'LOG_ACL_ADD_ADMIN_GLOBAL_A_' => '<strong>Ajout ou modification d’administrateurs</strong><br>» %s',
 	'LOG_ACL_ADD_MOD_GLOBAL_M_'   => '<strong>Ajout ou modification de modérateurs généraux</strong><br>» %s',
 
-	'LOG_ACL_ADD_USER_LOCAL_F_'  => '<strong>Ajout ou modification de l’accès des utilisateurs à un forum</strong> de %1$s<br>» %2$s',
-	'LOG_ACL_ADD_USER_LOCAL_M_'  => '<strong>Ajout ou modification de l’accès des modérateurs à un forum</strong> de %1$s<br>» %2$s',
-	'LOG_ACL_ADD_GROUP_LOCAL_F_' => '<strong>Ajout ou modification de l’accès des groupes d’utilisateurs à un forum</strong> de %1$s<br>» %2$s',
-	'LOG_ACL_ADD_GROUP_LOCAL_M_' => '<strong>Ajout ou modification de l’accès des groupes de modérateurs à un forum</strong> de %1$s<br>» %2$s',
+	'LOG_ACL_ADD_USER_LOCAL_F_'  => '<strong>Ajout ou modification de l’accès des utilisateurs à un forum</strong> à %1$s<br>» %2$s',
+	'LOG_ACL_ADD_USER_LOCAL_M_'  => '<strong>Ajout ou modification de l’accès des modérateurs à un forum</strong> à %1$s<br>» %2$s',
+	'LOG_ACL_ADD_GROUP_LOCAL_F_' => '<strong>Ajout ou modification de l’accès des groupes d’utilisateurs à un forum</strong> à %1$s<br>» %2$s',
+	'LOG_ACL_ADD_GROUP_LOCAL_M_' => '<strong>Ajout ou modification de l’accès des groupes de modérateurs à un forum</strong> à %1$s<br>» %2$s',
 
-	'LOG_ACL_ADD_MOD_LOCAL_M_'   => '<strong>Ajout ou modification de modérateurs</strong> de %1$s<br>» %2$s',
-	'LOG_ACL_ADD_FORUM_LOCAL_F_' => '<strong>Ajout ou modification des permissions d’un forum</strong> de %1$s<br>» %2$s',
+	'LOG_ACL_ADD_MOD_LOCAL_M_'   => '<strong>Ajout ou modification de modérateurs</strong> pour %1$s<br>» %2$s',
+	'LOG_ACL_ADD_FORUM_LOCAL_F_' => '<strong>Ajout ou modification des permissions d’un forum</strong> pour %1$s<br>» %2$s',
 
 	'LOG_ACL_DEL_ADMIN_GLOBAL_A_' => '<strong>Suppression d’administrateurs</strong><br>» %s',
 	'LOG_ACL_DEL_MOD_GLOBAL_M_'   => '<strong>Suppression de modérateurs généraux</strong><br>» %s',
@@ -552,7 +549,7 @@ $lang = array_merge($lang, [
 	'LOG_BBCODE_ADD'                 => '<strong>Ajout d’un nouveau BBCode</strong><br>» %s',
 	'LOG_BBCODE_EDIT'                => '<strong>Modification d’un BBCode</strong><br>» %s',
 	'LOG_BBCODE_DELETE'              => '<strong>Suppression d’un BBCode</strong><br>» %s',
-	'LOG_BBCODE_CONFIGURATION_ERROR' => '<strong>Une erreur est survenue lors de la configuration du BBCode</strong> : %1$s<br>» %2$s',
+	'LOG_BBCODE_CONFIGURATION_ERROR' => '<strong>Une erreur est survenue lors de la configuration du BBCode</strong> : %1$s<br>» %2$s',
 
 	'LOG_BOT_ADDED'   => '<strong>Ajout d’un nouveau robot</strong><br>» %s',
 	'LOG_BOT_DELETE'  => '<strong>Suppression d’un robot</strong><br>» %s',
@@ -743,10 +740,14 @@ $lang = array_merge($lang, [
 	'LOG_SEARCH_INDEX_CREATED' => '<strong>Création d’un index de recherche</strong><br>» %s',
 	'LOG_SEARCH_INDEX_REMOVED' => '<strong>Suppression d’un index de recherche</strong><br>» %s',
 	'LOG_SPHINX_ERROR'         => '<strong>Une erreur de Sphinx est survenue</strong><br>» %s',
-	'LOG_STYLE_ADD'            => '<strong>Ajout d’un nouveau style</strong><br>» %s',
-	'LOG_STYLE_DELETE'         => '<strong>Suppression d’un style</strong><br>» %s',
-	'LOG_STYLE_EDIT_DETAILS'   => '<strong>Modification d’un style</strong><br>» %s',
-	'LOG_STYLE_EXPORT'         => '<strong>Exportation d’un style</strong><br>» %s',
+
+	'LOG_SPAMHAUS_OPEN_RESOLVER' => 'Spamhaus n’autorise pas les requêtes utilisant un résolveur ouvert. La vérification de la liste noire a été désactivée. Pour plus d’informations, veuillez consulter https://www.spamhaus.com/product/help-for-spamhaus-public-mirror-users/.',
+	'LOG_SPAMHAUS_VOLUME_LIMIT'  => 'La limite de volume des requêtes de Spamhaus a été dépassée. La vérification de la liste noire a été désactivée. Pour plus d’informations, veuillez consulter https://www.spamhaus.com/product/help-for-spamhaus-public-mirror-users/.',
+
+	'LOG_STYLE_ADD'          => '<strong>Ajout d’un nouveau style</strong><br>» %s',
+	'LOG_STYLE_DELETE'       => '<strong>Suppression d’un style</strong><br>» %s',
+	'LOG_STYLE_EDIT_DETAILS' => '<strong>Modification d’un style</strong><br>» %s',
+	'LOG_STYLE_EXPORT'       => '<strong>Exportation d’un style</strong><br>» %s',
 
 	// @deprecated 3.1
 	'LOG_TEMPLATE_ADD_DB' => '<strong>Ajout d’un nouvel ensemble de modèles à la base de données</strong><br>» %s',

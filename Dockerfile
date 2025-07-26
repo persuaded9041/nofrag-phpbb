@@ -1,7 +1,8 @@
-FROM php:7.4-apache
+FROM php:8.4.8-apache
 
 RUN apt-get update -y \
-  && apt-get install -y acl zip unzip libpng-dev \
+  && apt-get install -y acl zip unzip libpng-dev libzip-dev \
+  && docker-php-ext-install zip \
   && rm -rf /var/lib/apt/lists/* \
   && docker-php-ext-install mysqli gd \
   && docker-php-ext-enable mysqli gd
@@ -17,7 +18,7 @@ COPY . .
 RUN setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX ./cache ./store ./files ./images/avatars/upload ./config.php \
   && setfacl -dR -m u:www-data:rwX -m u:`whoami`:rwX ./cache ./store ./files ./images/avatars/upload ./config.php
 
-COPY --from=composer:2.0 /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer:2.8.10 /usr/bin/composer /usr/local/bin/composer
 
 RUN composer install
 

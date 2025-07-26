@@ -18,7 +18,7 @@ class profilefield_yahoo extends \phpbb\db\migration\profilefield_base_migration
 	static public function depends_on()
 	{
 		return array(
-			'\phpbb\db\migration\data\v310\profilefield_wlm_cleanup',
+			'\phpbb\db\migration\data\v310\profilefield_website_cleanup',
 		);
 	}
 

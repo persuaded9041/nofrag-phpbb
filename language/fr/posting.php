@@ -4,6 +4,7 @@
  * phpBB forum software.
  *
  * @copyright (c) phpBB Limited <https://www.phpbb.com>
+ * @copyright (c) Qiaeru <https://www.qiaeru.com>
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * For more information about the language pack, please visit
@@ -150,6 +151,7 @@ $lang = array_merge($lang, [
 	'LOGIN_EXPLAIN_QUOTE'       => 'Vous devez vous connecter afin de pouvoir citer les messages de ce forum.',
 	'LOGIN_EXPLAIN_REPLY'       => 'Vous devez vous connecter afin de pouvoir répondre aux sujets de ce forum.',
 
+	'MAX_ATTACHMENT_FILESIZE'   => 'Taille maximale des fichiers par pièce jointe : %s.',
 	'MAX_FONT_SIZE_EXCEEDED'    => 'Vous ne devez utiliser que les polices de caractères dont la taille est inférieure à %1$d.',
 	'MAX_FLASH_HEIGHT_EXCEEDED' => [
 		1 => 'Vos fichiers Flash ne doivent pas dépasser %d pixel de haut.',
@@ -266,7 +268,6 @@ $lang = array_merge($lang, [
 	'TOPIC_BUMPED'          => 'Le sujet a été remonté.',
 
 	'UNAUTHORISED_BBCODE'            => 'Vous ne pouvez pas utiliser certains BBCodes : %s.',
-	'UNGLOBALISE_EXPLAIN'            => 'Pour rétablir cette annonce générale en sujet standard, vous devez sélectionner le forum dans lequel vous souhaitez voir apparaître ce sujet.',
 	'UNSUPPORTED_CHARACTERS_MESSAGE' => 'Votre message contient les caractères non pris en charge suivants :<br>%s',
 	'UNSUPPORTED_CHARACTERS_SUBJECT' => 'Votre sujet contient les caractères non pris en charge suivants :<br>%s',
 	'UPDATE_COMMENT'                 => 'Mettre à jour la description',

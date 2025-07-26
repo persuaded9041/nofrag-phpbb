@@ -4,6 +4,7 @@
  * phpBB forum software.
  *
  * @copyright (c) phpBB Limited <https://www.phpbb.com>
+ * @copyright (c) Qiaeru <https://www.qiaeru.com>
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * For more information about the language pack, please visit
@@ -36,7 +37,7 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, [
-	'ACP_STYLES_EXPLAIN' => 'Depuis cette page, vous pouvez gérer les styles disponibles sur votre forum.<br>Veuillez noter que vous ne pouvez pas désinstaller le style « prosilver » qui est le style par défaut de phpBB.',
+	'ACP_STYLES_EXPLAIN' => 'Depuis cette page, vous pouvez gérer les styles disponibles sur votre forum.<br>Veuillez noter que vous ne pouvez pas désinstaller le style « prosilver » qui est le style par défaut de phpBB.',
 
 	'CANNOT_BE_INSTALLED'      => 'Ne peut pas être installé',
 	'CONFIRM_UNINSTALL_STYLES' => 'Êtes-vous sûr de vouloir désinstaller ces styles ?',
@@ -55,7 +56,7 @@ $lang = array_merge($lang, [
 	'INVALID_STYLE_ID'       => 'L’identifiant du style est invalide.',
 
 	'NO_MATCHING_STYLES_FOUND' => 'Aucun style ne correspond à votre requête.',
-	'NO_UNINSTALLED_STYLE'     => 'Aucun style n’a été désinstallé.',
+	'NO_UNINSTALLED_STYLE'     => 'Aucun style n’est en attente d’installation.',
 
 	'PURGED_CACHE' => 'Le cache a été vidé.',
 
@@ -83,7 +84,7 @@ $lang = array_merge($lang, [
 	'STYLE_USED_BY'                             => 'Utilisé par (incluant les robots)',
 	'STYLE_VERSION'                             => 'Version du style',
 
-	'UNINSTALL_PROSILVER' => 'Vous ne pouvez pas désinstaller le style « prosilver ».',
+	'UNINSTALL_PROSILVER' => 'Vous ne pouvez pas désinstaller le style « prosilver ».',
 	'UNINSTALL_DEFAULT'   => 'Vous ne pouvez pas désinstaller le style par défaut.',
 
 	'BROWSE_STYLES_DATABASE' => 'Parcourir la base de données des styles',

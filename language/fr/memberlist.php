@@ -4,6 +4,7 @@
  * phpBB forum software.
  *
  * @copyright (c) phpBB Limited <https://www.phpbb.com>
+ * @copyright (c) Qiaeru <https://www.qiaeru.com>
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * For more information about the language pack, please visit
@@ -148,6 +149,5 @@ $lang = array_merge($lang, [
 	'VIEW_FACEBOOK_PROFILE'   => 'Consulter le profil Facebook',
 	'VIEW_SKYPE_PROFILE'      => 'Consulter le profil Skype',
 	'VIEW_TWITTER_PROFILE'    => 'Consulter le profil Twitter',
-	'VIEW_YOUTUBE_CHANNEL'    => 'Consulter la chaîne YouTube',
-	'VIEW_GOOGLEPLUS_PROFILE' => 'Consulter le profil Google+',
+	'VIEW_YOUTUBE_PROFILE'    => 'Consulter le profil YouTube',
 ]);

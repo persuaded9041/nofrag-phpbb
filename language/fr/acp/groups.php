@@ -4,6 +4,7 @@
  * phpBB forum software.
  *
  * @copyright (c) phpBB Limited <https://www.phpbb.com>
+ * @copyright (c) Qiaeru <https://www.qiaeru.com>
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
  * For more information about the language pack, please visit
@@ -110,7 +111,7 @@ $lang = array_merge($lang, [
 	'GROUP_USERS_ADDED'   => 'Les nouveaux utilisateurs ont été ajoutés au groupe d’utilisateurs.',
 	'GROUP_USERS_EXIST'   => 'Les utilisateurs sont déjà membres de ce groupe d’utilisateurs.',
 	'GROUP_USERS_REMOVE'  => 'Les utilisateurs ont été supprimés de ce groupe d’utilisateurs. Ils ont été transférés dans le groupe d’utilisateurs par défaut.',
-	'GROUP_USERS_INVALID' => 'Aucun utilisateur n’a été ajouté au groupe d’utilisateurs étant donné que les noms d’utilisateurs suivants n’existent pas : %s',
+	'GROUP_USERS_INVALID' => 'Aucun utilisateur n’a été ajouté au groupe d’utilisateurs étant donné que les noms d’utilisateurs suivants n’existent pas : %s',
 
 	'LEGEND_EXPLAIN'                => 'Cette liste correspond aux groupes d’utilisateurs qui sont affichés dans la légende des groupes :',
 	'LEGEND_SETTINGS'               => 'Paramètres de la légende',

@@ -1,4 +1,4 @@
-/* global phpbb */
+/* global phpbb, statsData */
 
 (function($) {  // Avoid conflicts with other libraries
 
@@ -74,7 +74,7 @@ phpbb.prepareSendStats = function () {
 			var $sendStatisticsSuccess = $('<input />', {
 				type: 'hidden',
 				name: 'send_statistics_response',
-				value: res
+				value: JSON.stringify(res)
 			});
 			$sendStatisticsSuccess.appendTo('p.submit-buttons');
 
@@ -87,7 +87,7 @@ phpbb.prepareSendStats = function () {
 		$.ajax({
 			url: $this.attr('data-ajax-action').replace('&amp;', '&'),
 			type: 'POST',
-			data: 'systemdata=' + encodeURIComponent($this.find('input[name=systemdata]').val()),
+			data: statsData,
 			success: returnHandler,
 			error: errorHandler,
 			cache: false
@@ -173,7 +173,9 @@ function submitPermissions() {
 	var permissionSubmitSize = 0,
 		permissionRequestCount = 0,
 		forumIds = [],
-		permissionSubmitFailed = false;
+		permissionSubmitFailed = false,
+		clearIndicator = true,
+		$loadingIndicator;
 
 	if ($submitAllButton !== $submitButton) {
 		fieldsetList = $form.find('fieldset#' + $submitButton.closest('fieldset.permissions').id);
@@ -207,6 +209,8 @@ function submitPermissions() {
 		}
 	});
 
+	$loadingIndicator = phpbb.loadingIndicator();
+
 	/**
 	 * Handler for submitted permissions form chunk
 	 *
@@ -222,6 +226,8 @@ function submitPermissions() {
 		} else if (!permissionSubmitFailed && res.S_USER_NOTICE) {
 			// Display success message at the end of submitting the form
 			if (permissionRequestCount >= permissionSubmitSize) {
+				clearIndicator = true;
+
 				var $alert = phpbb.alert(res.MESSAGE_TITLE, res.MESSAGE_TEXT);
 				var $alertBoxLink = $alert.find('p.alert_text > a');
 
@@ -229,14 +235,20 @@ function submitPermissions() {
 				if ($alertBoxLink) {
 					// Remove forum_id[] from URL
 					$alertBoxLink.attr('href', $alertBoxLink.attr('href').replace(/(&forum_id\[\]=[0-9]+)/g, ''));
-					var previousPageForm = '<form action="' + $alertBoxLink.attr('href') + '" method="post">';
-					$.each(forumIds, function (key, value) {
-						previousPageForm += '<input type="text" name="forum_id[]" value="' + value + '" />';
+					const $previousPageForm = $('<form>').attr({
+						action: $alertBoxLink.attr('href'),
+						method: 'post'
 					});
-					previousPageForm += '</form>';
+
+					$.each(forumIds, function (key, value) {
+						$previousPageForm.append($('<input>').attr({
+							type: 'text',
+							name: 'forum_id[]',
+							value: value
+						}));
+					});
 
 					$alertBoxLink.on('click', function (e) {
-						var $previousPageForm = $(previousPageForm);
 						$('body').append($previousPageForm);
 						e.preventDefault();
 						$previousPageForm.submit();
@@ -251,12 +263,19 @@ function submitPermissions() {
 					setTimeout(function () {
 						// Create forum to submit using POST. This will prevent
 						// exceeding the maximum length of URLs
-						var form = '<form action="' + res.REFRESH_DATA.url.replace(/(&forum_id\[\]=[0-9]+)/g, '') + '" method="post">';
-						$.each(forumIds, function (key, value) {
-							form += '<input type="text" name="forum_id[]" value="' + value + '" />';
+						const $form = $('<form>').attr({
+							action: res.REFRESH_DATA.url.replace(/(&forum_id\[\]=[0-9]+)/g, ''),
+							method: 'post'
 						});
-						form += '</form>';
-						$form = $(form);
+
+						$.each(forumIds, function (key, value) {
+							$form.append($('<input>').attr({
+								type: 'text',
+								name: 'forum_id[]',
+								value: value
+							}));
+						});
+
 						$('body').append($form);
 
 						// Hide the alert even if we refresh the page, in case the user
@@ -271,6 +290,17 @@ function submitPermissions() {
 						$form.submit();
 					}, res.REFRESH_DATA.time * 1000); // Server specifies time in seconds
 				}
+			} else {
+				// Still more forms to submit, so do not clear indicator
+				clearIndicator = false;
+			}
+		}
+
+		if (clearIndicator) {
+			phpbb.clearLoadingTimeout();
+
+			if ($loadingIndicator) {
+				$loadingIndicator.fadeOut(phpbb.alertTime);
 			}
 		}
 	}

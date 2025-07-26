@@ -63,8 +63,10 @@ switch ($mode)
 	break;
 
 	case 'sendpassword':
-		$module->load('ucp', 'remind');
-		$module->display($user->lang['UCP_REMIND']);
+		/** @var \phpbb\controller\helper $controller_helper */
+		$controller_helper = $phpbb_container->get('controller.helper');
+
+		redirect($controller_helper->route('phpbb_ucp_forgot_password_controller'));
 	break;
 
 	case 'register':
@@ -152,68 +154,11 @@ switch ($mode)
 	break;
 
 	case 'delete_cookies':
+		/** @var \phpbb\controller\helper $controller_helper */
+		$controller_helper = $phpbb_container->get('controller.helper');
 
-		// Delete Cookies with dynamic names (do NOT delete poll cookies)
-		if (confirm_box(true))
-		{
-			$set_time = time() - 31536000;
-
-			foreach ($request->variable_names(\phpbb\request\request_interface::COOKIE) as $cookie_name)
-			{
-				$cookie_data = $request->variable($cookie_name, '', true, \phpbb\request\request_interface::COOKIE);
-
-				// Only delete board cookies, no other ones...
-				if (strpos($cookie_name, $config['cookie_name'] . '_') !== 0)
-				{
-					continue;
-				}
-
-				$cookie_name = str_replace($config['cookie_name'] . '_', '', $cookie_name);
-
-				/**
-				* Event to save custom cookies from deletion
-				*
-				* @event core.ucp_delete_cookies
-				* @var	string	cookie_name		Cookie name to checking
-				* @var	bool	retain_cookie	Do we retain our cookie or not, true if retain
-				* @since 3.1.3-RC1
-				*/
-				$retain_cookie = false;
-				$vars = array('cookie_name', 'retain_cookie');
-				extract($phpbb_dispatcher->trigger_event('core.ucp_delete_cookies', compact($vars)));
-				if ($retain_cookie)
-				{
-					continue;
-				}
-
-				// Polls are stored as {cookie_name}_poll_{topic_id}, cookie_name_ got removed, therefore checking for poll_
-				if (strpos($cookie_name, 'poll_') !== 0)
-				{
-					$user->set_cookie($cookie_name, '', $set_time);
-				}
-			}
-
-			$user->set_cookie('track', '', $set_time);
-			$user->set_cookie('u', '', $set_time);
-			$user->set_cookie('k', '', $set_time);
-			$user->set_cookie('sid', '', $set_time);
-
-			// We destroy the session here, the user will be logged out nevertheless
-			$user->session_kill();
-			$user->session_begin();
-
-			meta_refresh(3, append_sid("{$phpbb_root_path}index.$phpEx"));
-
-			$message = $user->lang['COOKIES_DELETED'] . '<br /><br />' . sprintf($user->lang['RETURN_INDEX'], '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '">', '</a>');
-			trigger_error($message);
-		}
-		else
-		{
-			confirm_box(false, 'DELETE_COOKIES', '');
-		}
-
-		redirect(append_sid("{$phpbb_root_path}index.$phpEx"));
-
+		// Redirect to controller
+		redirect($controller_helper->route('phpbb_ucp_delete_cookies_controller'));
 	break;
 
 	case 'switch_perm':
@@ -356,6 +301,20 @@ if ($module->is_active('zebra', 'friends'))
 		'ORDER_BY'	=> 'u.username_clean ASC',
 	);
 
+	/**
+	* Event to modify the SQL query before listing of friends
+	*
+	* @event core.ucp_modify_friends_sql
+	* @var	array	sql_ary		SQL query array for listing of friends
+	*
+	* @since 3.2.10-RC1
+	* @since 3.3.1-RC1
+	*/
+	$vars = [
+		'sql_ary',
+	];
+	extract($phpbb_dispatcher->trigger_event('core.ucp_modify_friends_sql', compact($vars)));
+
 	$sql = $db->sql_build_query('SELECT_DISTINCT', $sql_ary);
 	$result = $db->sql_query($sql);
 
@@ -363,14 +322,33 @@ if ($module->is_active('zebra', 'friends'))
 	{
 		$which = (time() - $update_time < $row['online_time'] && ($row['viewonline'] || $auth->acl_get('u_viewonline'))) ? 'online' : 'offline';
 
-		$template->assign_block_vars("friends_{$which}", array(
+		$tpl_ary = [
 			'USER_ID'		=> $row['user_id'],
-
 			'U_PROFILE'		=> get_username_string('profile', $row['user_id'], $row['username'], $row['user_colour']),
 			'USER_COLOUR'	=> get_username_string('colour', $row['user_id'], $row['username'], $row['user_colour']),
 			'USERNAME'		=> get_username_string('username', $row['user_id'], $row['username'], $row['user_colour']),
-			'USERNAME_FULL'	=> get_username_string('full', $row['user_id'], $row['username'], $row['user_colour']))
-		);
+			'USERNAME_FULL'	=> get_username_string('full', $row['user_id'], $row['username'], $row['user_colour'])
+		];
+
+		/**
+		* Event to modify the template before listing of friends
+		*
+		* @event core.ucp_modify_friends_template_vars
+		* @var	array	row			friend user row
+		* @var	array	tpl_ary		friend template array
+		* @var	string	which		friend is 'online' or 'offline'
+		*
+		* @since 3.2.10-RC1
+		* @since 3.3.1-RC1
+		*/
+		$vars = [
+			'row',
+			'tpl_ary',
+			'which',
+		];
+		extract($phpbb_dispatcher->trigger_event('core.ucp_modify_friends_template_vars', compact($vars)));
+
+		$template->assign_block_vars("friends_{$which}", $tpl_ary);
 	}
 	$db->sql_freeresult($result);
 }
@@ -392,6 +370,11 @@ if (!$config['allow_topic_notify'] && !$config['allow_forum_notify'])
 */
 $vars = array('module', 'id', 'mode');
 extract($phpbb_dispatcher->trigger_event('core.ucp_display_module_before', compact($vars)));
+
+$template->assign_block_vars('navlinks', array(
+	'BREADCRUMB_NAME'	=> $user->lang('UCP'),
+	'U_BREADCRUMB'		=> append_sid("{$phpbb_root_path}ucp.$phpEx"),
+));
 
 // Select the active module
 $module->set_active($id, $mode);
