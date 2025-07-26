@@ -1,11 +1,6 @@
 CREATE DATABASE  IF NOT EXISTS `wefrag` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `wefrag`;
 
-DROP USER IF EXISTS 'wefrag'@'localhost';
-CREATE USER 'wefrag'@'localhost' IDENTIFIED WITH mysql_native_password BY 'wefrag';
-GRANT ALL PRIVILEGES ON wefrag.* TO 'wefrag'@'localhost';
-FLUSH PRIVILEGES;
-
 -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
 -- Host: localhost    Database: wefrag

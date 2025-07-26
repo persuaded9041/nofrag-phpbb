@@ -1,9 +1,13 @@
 version: '3.7'
 
 services:
-  mysql:
-    container_name: mysql
+  wefrag-mysql:
+    container_name: wefrag-mysql
     image: mysql:5.7
+    ulimits:
+      nofile: # Fix memory leak issue on some systems when LimitCORE=infinity (containerd)
+        soft: 1048576
+        hard: 1048576
     restart: always
     command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
@@ -19,8 +23,8 @@ services:
     networks:
       - wefrag-network
 
-  phpbb-apache:
-    container_name: phpbb-apache
+  wefrag-phpbb-apache:
+    container_name: wefrag-phpbb-apache
     build:
       context: .
       dockerfile: Dockerfile
@@ -28,7 +32,7 @@ services:
     ports:
       - '8000:80'
     depends_on:
-      - mysql
+      - wefrag-mysql
     networks:
       - wefrag-network
 

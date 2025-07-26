@@ -2,7 +2,7 @@
 // phpBB 3.2.x auto-generated configuration file
 // Do not change anything in this file!
 $dbms = 'phpbb\\db\\driver\\mysqli';
-$dbhost = 'mysql';
+$dbhost = 'wefrag-mysql';
 $dbport = '3306';
 $dbname = 'wefrag';
 $dbuser = 'wefrag';
