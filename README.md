@@ -40,7 +40,7 @@ sudo docker compose down
 # ou `sudo docker compose down -v` pour supprimer la base de données
 ```
 
-#### Désinstallation du projet
+#### Désinstallation du projet
 
 ```bash
 sudo docker builder prune -f
